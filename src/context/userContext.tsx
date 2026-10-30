@@ -1,5 +1,5 @@
 import { createContext, type ReactNode } from "react";
-import type { Self } from "../types/types";
+import type { Self } from "../types";
 import { useMe } from "../api/auth";
 
 

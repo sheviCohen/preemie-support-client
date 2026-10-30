@@ -1,6 +1,6 @@
 import { useEditProfile } from "../api/auth"
 import { useForm } from "react-hook-form";
-import type { Self, UpdateProfileRequest } from "../types/types"
+import type { Self, UpdateProfileRequest } from "../types"
 
 export default function EditProfile({ user, setEdit }: { user: Self, setEdit: () => void }) {
     const editProfile = useEditProfile();

@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useRegister } from "../api/auth";
-import type { RegisterRequest } from "../types/types";
+import type { RegisterRequest } from "../types";
 import { useNavigate } from "react-router";
 export default function RegisterForm() {
     const registerUser = useRegister();

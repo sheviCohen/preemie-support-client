@@ -1,4 +1,4 @@
-import type {Baby} from "../types/types"
+import type {Baby} from "../types"
 export default function ProfileBaby({name,birthDate,birthWeightGrams}:Baby)
 {
     return(

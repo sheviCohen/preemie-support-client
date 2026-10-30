@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { tokenStorage } from "./token";
-import type { ApiError } from "../types/types";
+import type { ApiError } from "../types";
 
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL, // כתובת השרת שלך

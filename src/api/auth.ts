@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api, HttpError } from "./client";
 import { tokenStorage } from "./token";
-import type { LoginRequest, Self,RegisterRequest, UpdateProfileRequest } from "../types/types";
+import type { LoginRequest, Self,RegisterRequest, UpdateProfileRequest } from "../types";
 
 // התחברות: שולח אימייל וסיסמה, ושומר את הטוקן שחוזר
 export function useLogin() {

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { UserContext } from "../context/userContext"
-import { STAFF_ROLE_LABELS } from "../types/types";
+import { STAFF_ROLE_LABELS } from "../types";
 import { Link } from "react-router";
 
 export default function Home() {

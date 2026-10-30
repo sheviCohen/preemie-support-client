@@ -1,6 +1,6 @@
 import { UserContext } from "../context/userContext";
-import type { Message} from "../types/types";
-import { STAFF_ROLE_LABELS } from "../types/types";
+import type { Message} from "../types";
+import { STAFF_ROLE_LABELS } from "../types";
 import { useContext } from "react";
 
 

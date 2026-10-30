@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api, HttpError } from "./client";
-import type {MotherListItem,StaffListItem } from "../types/types";
+import type {MotherListItem,StaffListItem } from "../types";
 
 
 export function useStaff()

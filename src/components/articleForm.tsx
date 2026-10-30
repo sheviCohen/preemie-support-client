@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAddArticle, useEditArticle } from "../api/articles";
-import { ARTICLE_CATEGORY_LABELS, type Article, type ArticleFormValues, type CreateArticleRequest } from "../types/types";
+import { ARTICLE_CATEGORY_LABELS, type Article, type ArticleFormValues, type CreateArticleRequest } from "../types";
 
 export default function ArticleForm({ article }: { article?: Article })
 {

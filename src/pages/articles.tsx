@@ -3,7 +3,7 @@ import { useArticles } from "../api/articles"
 import ArticleInList from "../components/articleInList";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
-import { ARTICLE_CATEGORY_LABELS, type ArticleCategory } from "../types/types";
+import { ARTICLE_CATEGORY_LABELS, type ArticleCategory } from "../types";
 
 
 export default function Articles() {

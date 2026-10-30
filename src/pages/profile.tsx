@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { useState } from "react";
 import EditProfile from "../components/editProfile";
-import { STAFF_ROLE_LABELS } from "../types/types";
+import { STAFF_ROLE_LABELS } from "../types";
 
 export default function ProfileMother()
 {

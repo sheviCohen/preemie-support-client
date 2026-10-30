@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api, HttpError } from "./client";
-import type { Article, CreateArticleRequest, UpdateArticleRequest } from "../types/types";
+import type { Article, CreateArticleRequest, UpdateArticleRequest } from "../types";
 
 
 export const useArticles=()=>

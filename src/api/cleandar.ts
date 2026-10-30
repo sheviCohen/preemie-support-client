@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { HealthFund, ScheduleItem } from "../types/types";
+import type { HealthFund, ScheduleItem } from "../types";
 import { api, type HttpError } from "./client";
 
 

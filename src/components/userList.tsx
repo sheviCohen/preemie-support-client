@@ -1,6 +1,6 @@
 import UserInList from "./userInList";
 import { useStaff,useMothers } from "../api/users";
-import { STAFF_ROLE_LABELS } from "../types/types";
+import { STAFF_ROLE_LABELS } from "../types";
 
 export default function UserList({selected,onSelect}:{selected:number|"general",onSelect:(value:"general"|number)=>void})
 {

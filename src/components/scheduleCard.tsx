@@ -1,5 +1,5 @@
-import type { ScheduleItem } from "../types/types";
-import { SCHEDULE_TYPE_LABELS } from "../types/types";
+import type { ScheduleItem } from "../types";
+import { SCHEDULE_TYPE_LABELS } from "../types";
 
 export default function ScheduleCard({ item }: { item: ScheduleItem }) {
     return (

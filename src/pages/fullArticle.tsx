@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router";
 import { useArticle } from "../api/articles";
-import { ARTICLE_CATEGORY_LABELS, STAFF_ROLE_LABELS } from "../types/types"
+import { ARTICLE_CATEGORY_LABELS, STAFF_ROLE_LABELS } from "../types"
 
 
 export default function FullArticle()

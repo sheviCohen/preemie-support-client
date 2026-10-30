@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import type { Article } from "../types/types";
-import { ARTICLE_CATEGORY_LABELS, STAFF_ROLE_LABELS } from "../types/types"
+import type { Article } from "../types";
+import { ARTICLE_CATEGORY_LABELS, STAFF_ROLE_LABELS } from "../types"
 import { UserContext } from "../context/userContext";
 import { useContext } from "react";
 import { useDeleteArticle } from "../api/articles";
@@ -37,10 +37,11 @@ export default function ArticleInList({ article }: { article: Article }) {
                 me?.role === "STAFF" && me.id === article.author.id&&
                 <div className="absolute top-4 left-4 flex gap-1.5">
                     <button  onClick={()=>navigate(`/articles/${article.id}/edit`)} className="flex items-center gap-1 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-teal-700 shadow-sm ring-1 ring-teal-200 transition before:content-['✎'] hover:-translate-y-0.5 hover:bg-teal-500 hover:text-white hover:shadow-md hover:shadow-teal-500/30 hover:ring-teal-500 active:translate-y-0">עריכה</button>
-                    <button onClick={()=>confirm("האם אתה בטוח שאתה רוצה למחוק את המאמר?") &&deleteArticle.mutate(article.id)} className="flex items-center gap-1 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-rose-600 shadow-sm ring-1 ring-rose-200 transition before:content-['🗑'] hover:-translate-y-0.5 hover:bg-rose-500 hover:text-white hover:shadow-md hover:shadow-rose-500/30 hover:ring-rose-500 active:translate-y-0">מחיקה</button>
+                    <button disabled={deleteArticle.isPending} onClick={()=>confirm("האם אתה בטוח שאתה רוצה למחוק את המאמר?") &&deleteArticle.mutate(article.id)} className="flex items-center gap-1 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-rose-600 shadow-sm ring-1 ring-rose-200 transition before:content-['🗑'] hover:-translate-y-0.5 hover:bg-rose-500 hover:text-white hover:shadow-md hover:shadow-rose-500/30 hover:ring-rose-500 active:translate-y-0 disabled:pointer-events-none disabled:opacity-60">מחיקה</button>
                 </div>
 
             }
+            {deleteArticle.isError && <p className="rounded-xl bg-rose-50 px-3 py-2 text-center text-sm text-rose-600">{deleteArticle.error.message}</p>}
 
         </div>)
 }

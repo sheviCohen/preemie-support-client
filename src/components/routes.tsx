@@ -11,6 +11,7 @@ import FullArticle from "../pages/fullArticle";
 import Calendar from "../pages/calendar";
 import EditArticle from "../pages/editArticle";
 import AddArticle from "../pages/addArticle";
+import NotFound from "../pages/notFound";
 
 
 
@@ -68,7 +69,7 @@ const routes = createBrowserRouter([
 
                     {
                         path: "*",
-                        element: <div style={{ color: "red" }}>404</div>
+                        element: <NotFound></NotFound>
                     }
                 ]
             },
@@ -76,7 +77,7 @@ const routes = createBrowserRouter([
     },
     {
         path: "*",
-        element: <div style={{ color: "red" }}>404</div>
+        element: <NotFound></NotFound>
     }
 ])
 

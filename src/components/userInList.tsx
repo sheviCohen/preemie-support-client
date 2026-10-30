@@ -1,5 +1,5 @@
 
-import type { UserSummary } from "../types/types";
+import type { UserSummary } from "../types";
 
 interface UserInListProps
 {

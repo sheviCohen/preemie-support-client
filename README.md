@@ -1,32 +1,92 @@
-# React + TypeScript + Vite
+# ליווי אמהות לפגים: צד הלקוח (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+מערכת שמלווה אמהות לפגים אחרי השחרור מבית החולים. במקום אחד אפשר לשוחח עם הצוות המטפל ועם אמהות אחרות, לקרוא מאמרים מקצועיים ולעקוב אחרי התורים והטיפולים של התינוק.
 
-Currently, two official plugins are available:
+- **האתר:** https://preemie-support-client.onrender.com
+- **השרת:** https://preemie-support-api.onrender.com (תיעוד ה-API: `/api-docs`)
+- **קוד השרת:** https://github.com/sheviCohen/preemie-support-api
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> השרת רץ בתוכנית החינמית של Render, ונרדם אחרי כרבע שעה בלי שימוש. הכניסה הראשונה אחרי הפסקה יכולה לקחת עד דקה.
 
-## React Compiler
+## משתמשי דמו
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| תפקיד | שם | אימייל | סיסמה |
+|---|---|---|---|
+| אמא | שרה גולד (התינוק נועם) | `mother1@example.test` | ראו למטה |
+| אמא | לאה פרידמן (התינוקת יעל) | `mother2@example.test` | ראו למטה |
+| צוות: אחות | רחל לוי | `nurse@example.test` | ראו למטה |
+| צוות: עובדת סוציאלית | מירב כהן | `social@example.test` | ראו למטה |
+| צוות: מטפלת התפתחותית | דנה ברק | `therapist@example.test` | ראו למטה |
 
-## Expanding the Oxlint configuration
+**סיסמאות באתר שבאינטרנט:**
+- אמהות: `__________`
+- צוות: `__________`
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+**סיסמאות בהרצה מקומית** (שרת ומסד נתונים על המחשב):
+- אמהות: `Demo12345!`
+- צוות: `Staff12345!`
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+**מומלץ לבדוק עם רחל לוי:** היא כתבה מאמרים משני הסוגים, ולכן אצלה רואים את כפתורי העריכה והמחיקה.
+
+## מה אפשר לעשות במערכת
+
+| | אמא | איש צוות |
+|---|---|---|
+| **דף הבית** | ברכה אישית עם שם התינוק, וקיצורי דרך | ברכה עם התפקיד, וקיצורי דרך |
+| **מאמרים** | קריאה, חיפוש בכותרת ובתקציר, וסינון לפי קטגוריה | כמו אמא, ובנוסף הוספה של מאמרים, ועריכה ומחיקה של המאמרים שכתב/ה |
+| **צ'אט** | צ'אט כללי, ושיחות פרטיות עם אמהות ואנשי צוות | אותו דבר |
+| **לוח זמנים** | התורים ומשימות הטיפול של השבוע, וקישורים לקופות החולים | אין |
+| **פרופיל** | צפייה ועריכה של הפרטים האישיים ושל פרטי התינוק | צפייה ועריכה של הפרטים האישיים |
+
+**שני סוגי מאמרים:**
+- **מאמר צוות:** טקסט מלא שאיש הצוות כתב, ונפתח בעמוד משלו.
+- **מאמר חיצוני:** כרטיס עם קישור למאמר באתר אחר.
+
+**הרשאות:** הכפתורים מוצגים לפי המשתמש המחובר, והשרת בודק את ההרשאה שוב בכל בקשה. למשל, גם אם אמא תשלח בקשה להוספת מאמר, השרת יחזיר שגיאה.
+
+## טכנולוגיות
+
+- **React + TypeScript**, בנייה עם **Vite**
+- **React Router:** ניתוב בין העמודים, כולל עמודים מוגנים לפי התחברות
+- **React Hook Form:** טפסים עם בדיקות תקינות (הרשמה, עריכת פרופיל, הוספה ועריכה של מאמר)
+- **React Query:** כל הקריאות לשרת, טעינה, שגיאות ורענון הנתונים
+- **Context:** המשתמש המחובר, זמין לכל הקומפוננטות
+- **axios:** שליחת הבקשות, עם הטוקן של ההתחברות בכל בקשה
+- **Tailwind CSS:** עיצוב
+
+## מבנה התיקיות
+
+```
+src/
+├── api/          קריאות לשרת: הוק לכל פעולה, לפי נושא
+├── components/   קומפוננטות: טפסים, כרטיסים, רשימות, וקובץ הנתיבים
+├── context/      ה-Context של המשתמש המחובר
+├── pages/        העמודים, אחד לכל כתובת באתר
+├── types/        הטיפוסים, לפי נושא (משתמשים, מאמרים, לו"ז, צ'אט)
+└── utils/        פונקציות עזר לתאריכים
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## איך המידע עובר
+
+1. **התחברות:** השרת מחזיר טוקן, והוא נשמר בדפדפן. `api/client.ts` מוסיף אותו לכל בקשה.
+2. **המשתמש המחובר:** ה-Provider ב-`context/userContext.tsx` מביא אותו מהשרת (`useMe`), ומעביר אותו לכל האפליקציה דרך Context.
+3. **נתונים מהשרת:** כל עמוד משתמש בהוק מתיקיית `api/`. React Query שומר את התשובה במטמון, ומציג "טוען..." או הודעת שגיאה לפי הצורך.
+4. **שינויים:** הוספה, עריכה ומחיקה נשלחות לשרת. אחרי הצלחה, React Query מבקש את הנתונים מחדש, והמסך מתעדכן.
+5. **צ'אט:** ההודעות ורשימת השיחות נבדקות מול השרת כל שנייה וחצי. כשמגיעות הודעות חדשות, קופצת הודעה עם מספר ההודעות שלא נקראו.
+
+## הרצה מקומית
+
+צריך שהשרת ירוץ במחשב (ראו את ה-README במאגר של השרת).
+
+```bash
+npm install
+npm run dev
+```
+
+כתובת השרת נקבעת בקובץ `.env`:
+
+```
+VITE_API_URL=http://localhost:3000/api
+```
+
+באתר שבאינטרנט הכתובת מוגדרת ב-`render.yaml`, ומצביעה על השרת ב-Render.
