@@ -1,0 +1,16 @@
+# הגדרת העלאה ל-Render (Blueprint) לאתר ה-React: אתר סטטי, נבנה מחדש בכל עדכון במאגר
+services:
+  - type: web
+    name: preemie-support-client
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      # כתובת השרת ב-Render. Vite מכניס אותה לקוד בזמן הבנייה
+      - key: VITE_API_URL
+        value: https://preemie-support-api.onrender.com/api
+    routes:
+      # כל כתובת (למשל /articles/5) מחזירה את index.html, ו-React Router מציג את העמוד הנכון
+      - type: rewrite
+        source: /*
+        destination: /index.html
